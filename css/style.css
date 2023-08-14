@@ -1,5 +1,77 @@
-body {
+:root{
+	--primary-color: #9274b7;
+	--primary-text-color: white;
+}
+
+* {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+
+body {
+	background-color: #f8f8f0;
+}
+
+header {
+	color: var(--primary-text-color);
+	background-color: var(--primary-color);
+	margin-bottom: 16px;
+	padding: 16px 32px;
+	box-shadow: 0px 1px 5px #ddd;
+	z-index: 1px;
+	height: 64px;
+	position: relative;
+}
+
+#logo {
+	display: inline-block;
+	position: absolute;
+	left: 32px;
+}
+
+#pesquisa {
+	width: 25%;
+	height: 32px;
+	background-color: #ffffffbb;
+	padding: 16px;
+	border-radius: 16px;
+	border: none;
+	display: inline-block;
+	position: absolute;
+	right: 32px;
+}
+
+#pesquisa:focus{
+	outline: none;
+}
+
+main{ 
+	width: 80%;
+	margin: auto;
+}
+
+.card {
+	width: 30.75%;
+	margin: 16px 1%;
+	display: inline-block;
+	position: relative;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.capa {
+	width: 100%;
+}
+
+.titulo {
+	text-align: center;
+	color: var(--primary-text-color);
+	background: linear-gradient(#00000033, #000000aa);
+	text-shadow: 1px 1px #ababab33;
+	font-size: 0.95em;
+	width: 100%;
+	padding: 8px 16px;
+	position: absolute;
+	bottom: 0px;
 }
