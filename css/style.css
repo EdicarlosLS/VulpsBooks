@@ -49,6 +49,7 @@ header {
 main{ 
 	width: 80%;
 	margin: auto;
+	position: relative;
 }
 
 .card {
@@ -74,4 +75,52 @@ main{
 	padding: 8px 16px;
 	position: absolute;
 	bottom: 0px;
+}
+
+#modal {
+	background-color: #efefe0;
+	border-radius:16px;
+	overflow: hidden;
+	box-shadow: 1px 1px 5px #ababab88;
+	position: absolute;
+	top: 64px;
+}
+
+#titulo {
+	width: 50%;
+	margin: auto;
+}
+
+#conteudo {
+	padding: 32px;
+	height: 640px;
+}
+
+#info-container {
+	width: 50%;
+	display: inline-block;
+}
+
+#info-container img {
+	width: 100%;
+}
+
+#info {
+	display: inline-block;
+}
+
+.label {
+	margin-top:16px;
+	font-weight: bold;
+	display: block;
+}
+
+#descricao-container {
+	width: 45%;
+	height: 100%;
+	display: inline-block;
+	overflow: scroll;
+	float: right;
+	padding: 8px;
+	margin-left: 8px;
 }
