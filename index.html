@@ -10,27 +10,12 @@
 		<header>
 			<h1 id="logo">VulpsBooks</h1>
 			<form>
-				<input type="search" id="pesquisa" placeholder="Pesquise aqui">
+			<input type="search" id="pesquisa" placeholder="Pesquise aqui">
 			</form>
 		</header>
 		<main>
-			<div class="card">
-				<img src="./img/capa.png" alt="capa" class="capa">
-				<h6 class="titulo">Harry Potter e o Cálice de Fogo</h6>
-			</div>
-			<div class="card">
-				<img src="./img/capa.png" alt="capa" class="capa">
-				<h6 class="titulo">Titulo do livro</h6>
-			</div>
-			<div class="card">
-				<img src="./img/capa.png" alt="capa" class="capa">
-				<h6 class="titulo">Titulo do livro</h6>
-			</div>
-			<div class="card">
-				<img src="./img/capa.png" alt="capa" class="capa">
-				<h6 class="titulo">Titulo do livro</h6>
-			</div>
-
+			<ul id="lista-livros"></ul>
+		
 			<!-- Modal -->
 
 			<div id="modal">
@@ -64,6 +49,7 @@
 				</div>
 			</div>
 		</main>
+		<script src="./js/main.js"></script>
 		<script>
 			/*	setInterval(()=>{
 			window.location.reload();
