@@ -88,8 +88,20 @@ main{
 }
 
 #titulo {
-	width: 50%;
-	margin: auto;
+	width: 90%;
+	text-align: center;
+	display: inline-block;
+}
+
+#close {
+	width: 24px;
+	height: 24px;
+	font-size: 1.5em;
+	float: right;
+	color: var(--primary-text-color);
+	background-color: var(--primary-color);
+	display: inline-block;
+	border: none;
 }
 
 #conteudo {
