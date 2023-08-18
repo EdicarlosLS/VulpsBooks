@@ -85,6 +85,7 @@ main{
 	box-shadow: 1px 1px 5px #ababab88;
 	position: absolute;
 	top: 64px;
+	padding-bottom: 32px;
 }
 
 #titulo {
@@ -123,7 +124,7 @@ main{
 }
 
 .label {
-	margin-top:16px;
+	margin: 8px 0px;
 	font-weight: bold;
 	display: block;
 }
@@ -136,4 +137,20 @@ main{
 	float: right;
 	padding: 8px;
 	margin-left: 8px;
+}
+
+.categoria {
+	background-color: #00000033;
+	margin-right: 8px;
+	padding: 2px 16px;
+	border-radius: 16px;
+	display: inline-block;
+}
+
+.autor {
+	background-color: #ffffffcc;
+	margin-right: 8px;
+	padding: 2px 16px;
+	border-radius: 16px;
+	display: inline-block;
 }
