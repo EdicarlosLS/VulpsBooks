@@ -1,5 +1,8 @@
 let listaLivros = document.getElementById("lista-livros");
 let modal = document.getElementById("modal");
+let btnClose = document.getElementById("close");
+let pesquisa = document.getElementById("pesquisa");
+let loader = document.getElementById("loader");
 let livros = [];
 
 for (let i = 0; i < 10; i++) {
@@ -52,7 +55,6 @@ for (let index = 0; index <= listaLivros.childNodes.length; index++) {
 	}
 }*/
 
-let btnClose = document.getElementById("close");
 btnClose.addEventListener("click", ()=>{
 	modal.style.display= "none";
 });
@@ -110,6 +112,7 @@ async function pesquisar(nomeLivro){
 			livros.push(livroFromPesquisa(resultado));	
 	}
 	carregarListaLivros();
+	loader.style.display = "none";
 }
 
 function livroFromPesquisa(resultado){
@@ -126,9 +129,8 @@ function livroFromPesquisa(resultado){
 	return livro;
 }
 
-let formPesquisa = document.getElementById("form-pesquisa");
-let pesquisa = document.getElementById("pesquisa");
 pesquisa.addEventListener("search", ()=>{
+	loader.style.display = "block";
 	pesquisar(pesquisa.value);
 });
 
