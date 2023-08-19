@@ -1,4 +1,5 @@
 let listaLivros = document.getElementById("lista-livros");
+let modal = document.getElementById("modal");
 let livros = [];
 
 for (let i = 0; i < 10; i++) {
@@ -20,18 +21,26 @@ for (let i = 0; i < 10; i++) {
 	livros.push(livro);
 }
 
-livros.forEach((livro) => {
-	listaLivros.appendChild(cardForBook(livro));
-});
+function carregarListaLivros(){
+	listaLivros.innerHTML = "";
+	livros.forEach((livro, idx) => {
+		listaLivros.appendChild(cardFromBook(livro, idx));
+	});
+}
 
-function cardForBook(livro){
+function cardFromBook(livro, index){
 	let li = document.createElement("li");
 	li.innerHTML =  `<img src="${livro.capa}" alt="capa" class="capa">
 				<h6 class="titulo">${livro.titulo}</h6>`;
+
+	li.addEventListener("click",()=>{
+		modal.style.display = "block";
+		carregarModalComLivro(index);
+	});
+
 	return li;
 }
-
-let modal = document.getElementById("modal");
+/*
 for (let index = 0; index <= listaLivros.childNodes.length; index++) {
 	const child = listaLivros.childNodes[index];
 
@@ -41,7 +50,7 @@ for (let index = 0; index <= listaLivros.childNodes.length; index++) {
 			carregarModalComLivro(index);
 		});
 	}
-}
+}*/
 
 let btnClose = document.getElementById("close");
 btnClose.addEventListener("click", ()=>{
@@ -85,3 +94,41 @@ function spanFromCategoria(categoria){
 	span.innerText = categoria;
 	return span;
 }
+
+async function pesquisar(nomeLivro){
+	const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${nomeLivro}&filter=partial&printType=books`);
+	let resultado = await response.json();
+	//console.log(resultado);
+	
+	livros = [];
+	
+	if(resultado.totalItems){
+		resultado.items.forEach((livroPesquisa)=>{
+			livros.push(livroFromPesquisa(livroPesquisa));
+		});
+	} else {
+			livros.push(livroFromPesquisa(resultado));	
+	}
+	carregarListaLivros();
+}
+
+function livroFromPesquisa(resultado){
+	let livro = {
+		titulo : resultado.volumeInfo.title,
+		capa : resultado.volumeInfo.imageLinks.thumbnail,
+		autores: resultado.volumeInfo.authors,
+		publicacao: resultado.volumeInfo.publishedDate,
+		editora: resultado.volumeInfo.publisher,
+		descricao: resultado.volumeInfo.description,
+		categorias: resultado.volumeInfo.categories
+	};
+
+	return livro;
+}
+
+let formPesquisa = document.getElementById("form-pesquisa");
+let pesquisa = document.getElementById("pesquisa");
+pesquisa.addEventListener("search", ()=>{
+	pesquisar(pesquisa.value);
+});
+
