@@ -5,6 +5,18 @@ let pesquisa = document.getElementById("pesquisa");
 let loader = document.getElementById("loader");
 let livros = [];
 
+let nomeDoLivro = "";
+let qtdItens = 0;
+let resultadosPorPagina = 12;
+let qtdPaginas = 0;
+let paginaAtual = 1;
+let paginacao = document.getElementById("paginacao");
+let spanPagAtual = document.getElementById("pag-atual");
+let btnPagAnteiror = document.getElementById("pag-anterior");
+let btnPagProxima = document.getElementById("pag-proxima");
+
+
+
 for (let i = 0; i < 10; i++) {
 	let livro = {
 		titulo : "Titulo " + i,
@@ -97,21 +109,26 @@ function spanFromCategoria(categoria){
 	return span;
 }
 
-async function pesquisar(nomeLivro){
-	const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${nomeLivro}&filter=partial&printType=books`);
+async function pesquisar(nomeLivro, pagina = 0, resultadosPorPagina = 12){
+	loader.style.display = "block";
+	const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${nomeLivro}+intitle:${nomeLivro}&startIndex=${pagina * resultadosPorPagina}&maxResults=${resultadosPorPagina}&filter=partial&printType=books`);
 	let resultado = await response.json();
 	//console.log(resultado);
-	
+
 	livros = [];
-	
+
 	if(resultado.totalItems){
+		qtdItens = resultado.totalItems;
+
+		qtdPaginas = qtdPaginas < 1 ? Math.round(qtdItens/resultadosPorPagina) : qtdPaginas;
 		resultado.items.forEach((livroPesquisa)=>{
 			livros.push(livroFromPesquisa(livroPesquisa));
 		});
 	} else {
-			livros.push(livroFromPesquisa(resultado));	
+		livros.push(livroFromPesquisa(resultado));	
 	}
 	carregarListaLivros();
+	atualizarPaginacao();
 	loader.style.display = "none";
 }
 
@@ -130,7 +147,43 @@ function livroFromPesquisa(resultado){
 }
 
 pesquisa.addEventListener("search", ()=>{
-	loader.style.display = "block";
-	pesquisar(pesquisa.value);
+	nomeDoLivro = pesquisa.value;
+	paginaAtual = 1;
+	qtdPaginas = 0;
+	pesquisar(nomeDoLivro);
 });
+
+btnPagAnteiror.addEventListener("click", ()=>{
+	if(paginaAtual > 1){
+		paginaAtual--; 
+	}
+
+	pesquisar(nomeDoLivro, paginaAtual, resultadosPorPagina);
+});
+
+btnPagProxima.addEventListener("click", ()=>{
+	if(paginaAtual < qtdPaginas){
+		paginaAtual++; 
+	}
+
+	pesquisar(nomeDoLivro, paginaAtual, resultadosPorPagina);
+});
+
+function atualizarPaginacao(){
+	paginacao.style.display = "block";
+	spanPagAtual.innerText = `Página ${paginaAtual} de ${qtdPaginas}`;
+
+	if(paginaAtual == 1){
+		btnPagAnteiror.setAttribute("disabled", "");
+	} else {
+		btnPagAnteiror.removeAttribute("disabled");
+	}
+
+	if(paginaAtual == qtdPaginas){
+		btnPagProxima.setAttribute("disabled", "");
+	} else {
+		btnPagProxima.removeAttribute("disabled");
+	}
+
+}
 
