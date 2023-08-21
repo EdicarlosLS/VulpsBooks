@@ -45,7 +45,7 @@ function carregarListaLivros(){
 
 function cardFromBook(livro, index){
 	let li = document.createElement("li");
-	li.innerHTML =  `<img src="${livro.capa}" alt="capa" class="capa">
+	li.innerHTML =  `<img src="${livro.capa}" alt="${livro.titulo}" class="capa">
 				<h6 class="titulo">${livro.titulo}</h6>`;
 
 	li.addEventListener("click",()=>{
