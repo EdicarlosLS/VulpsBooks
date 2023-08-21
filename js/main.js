@@ -110,6 +110,7 @@ function spanFromCategoria(categoria){
 }
 
 async function pesquisar(nomeLivro, pagina = 0, resultadosPorPagina = 12){
+	modal.style.display = "none";
 	loader.style.display = "block";
 	const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${nomeLivro}+intitle:${nomeLivro}&startIndex=${pagina * resultadosPorPagina}&maxResults=${resultadosPorPagina}&filter=partial&printType=books`);
 	let resultado = await response.json();
