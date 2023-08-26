@@ -11,6 +11,7 @@
 
 body {
 	background-color: #f8f8f0;
+	font-family: 'Comfortaa', cursive;
 }
 
 header {
@@ -189,6 +190,7 @@ main{
 	border: none;
 	border-radius: 8px;
 	box-shadow: 1px 1px 1px #000000aa;
+	cursor: pointer;
 }
 
 .btn-page:disabled{
