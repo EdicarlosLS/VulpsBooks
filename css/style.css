@@ -52,8 +52,12 @@ main{
 	position: relative;
 }
 
+#lista-livros{
+	text-align: center;
+}
+
 #lista-livros li{
-	width: 30.75%;
+	width: 240px;
 	margin: 16px 1%;
 	display: inline-block;
 	position: relative;
@@ -100,7 +104,6 @@ main{
 	width: 24px;
 	height: 24px;
 	font-size: 1.5em;
-	float: right;
 	color: var(--primary-text-color);
 	background-color: var(--primary-color);
 	display: inline-block;
@@ -113,16 +116,16 @@ main{
 }
 
 #info-container {
-	width: 50%;
+	width: 40%;
 	display: inline-block;
 }
 
 #info-container img {
-	width: 100%;
+	width: 50%;
 }
 
 #info {
-	display: inline-block;
+	display: block;
 }
 
 .label {
@@ -132,11 +135,10 @@ main{
 }
 
 #descricao-container {
-	width: 45%;
+	width: 57%;
 	height: 100%;
-	display: inline-block;
-	overflow: scroll;
 	float: right;
+	overflow-y: scroll;
 	padding: 8px;
 	margin-left: 8px;
 }
@@ -196,14 +198,32 @@ main{
 
 @media screen and (max-width: 720px){
 
-	#lista-livros{
-		text-align: center;
-	}
-
 	#lista-livros li{
 		width: 47%;
 		max-width: 180px;
 		margin: 16px 1.9%;
+	}
+
+	.capa{
+		height: 270;
+	}
+
+	#modal header{
+		height: auto;
+	}
+
+	#conteudo{
+		text-align: center;
+	}
+
+	#info-container img {
+		width: 100%;
+	}
+
+	#descricao-container {
+		width: 100%;
+		margin-top: 16px;
+		overflow: visible;
 	}
 
 }
@@ -240,20 +260,6 @@ main{
 		height: 100%;
 		overflow: scroll;
 	}
-
-	#modal header{
-		height: auto;
-	}
-
-	#conteudo{
-		text-align: center;
-	}
-
-	#descricao-container {
-		width: 100%;
-		margin-top: 16px;
-		overflow: visible;
-}
 
 }
 
