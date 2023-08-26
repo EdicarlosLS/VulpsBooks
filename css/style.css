@@ -172,7 +172,7 @@ main{
 
 #paginacao {
 	display: none;
-	margin: auto 32px;
+	margin-top: 32px;
 	padding: 8px;
 	text-align: center;
 }
@@ -192,3 +192,68 @@ main{
 .btn-page:disabled{
 	background-color: gray;
 }
+
+
+@media screen and (max-width: 720px){
+
+	#lista-livros{
+		text-align: center;
+	}
+
+	#lista-livros li{
+		width: 47%;
+		max-width: 180px;
+		margin: 16px 1.9%;
+	}
+
+}
+
+@media screen and (max-width: 480px){
+
+	#lista-livros li{
+		width: 98%;
+		max-width: 240px;
+	}
+
+	header {
+		height: 120px;
+	}
+
+	#logo {
+		width: 100%;
+		margin-bottom: 16px;
+		text-align: center;
+		position: static;
+	}
+
+	#pesquisa {
+		width: 100%;
+		position: static;
+	}
+
+	#modal {
+		width: 100%;
+		border-radius: 0px;
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		height: 100%;
+		overflow: scroll;
+	}
+
+	#modal header{
+		height: auto;
+	}
+
+	#conteudo{
+		text-align: center;
+	}
+
+	#descricao-container {
+		width: 100%;
+		margin-top: 16px;
+		overflow: visible;
+}
+
+}
+
