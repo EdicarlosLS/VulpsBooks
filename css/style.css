@@ -150,6 +150,7 @@ main{
 	padding: 2px 16px;
 	border-radius: 16px;
 	display: inline-block;
+	cursor: pointer;
 }
 
 .autor {
@@ -158,6 +159,7 @@ main{
 	padding: 2px 16px;
 	border-radius: 16px;
 	display: inline-block;
+	cursor: pointer;
 }
 
 #loader{

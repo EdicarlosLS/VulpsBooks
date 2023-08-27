@@ -5,7 +5,7 @@ let pesquisa = document.getElementById("pesquisa");
 let loader = document.getElementById("loader");
 let livros = [];
 
-let nomeDoLivro = "";
+let termoDePesquisa = "";
 let qtdItens = 0;
 let resultadosPorPagina = 12;
 let qtdPaginas = 0;
@@ -15,26 +15,6 @@ let spanPagAtual = document.getElementById("pag-atual");
 let btnPagAnteiror = document.getElementById("pag-anterior");
 let btnPagProxima = document.getElementById("pag-proxima");
 
-
-
-for (let i = 0; i < 10; i++) {
-	let livro = {
-		titulo : "Titulo " + i,
-		capa : "./img/capa.png",
-		autores: [
-			"Autor " + i,
-			"Outro Autor " + i
-		],
-		publicacao: "10-10-2010",
-		editora: "Editora " + i,
-		descricao: "Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.",
-		categorias: [
-			"Ação " + i,
-			"Aventura " + i
-		]
-	};
-	livros.push(livro);
-}
 
 function carregarListaLivros(){
 	listaLivros.innerHTML = "";
@@ -55,17 +35,6 @@ function cardFromBook(livro, index){
 
 	return li;
 }
-/*
-for (let index = 0; index <= listaLivros.childNodes.length; index++) {
-	const child = listaLivros.childNodes[index];
-
-	if(child){
-		child.addEventListener("click",()=>{
-			modal.style.display = "block";
-			carregarModalComLivro(index);
-		});
-	}
-}*/
 
 btnClose.addEventListener("click", ()=>{
 	modal.style.display= "none";
@@ -99,6 +68,10 @@ function spanFromAutor(autor){
 	let span = document.createElement("span");
 	span.classList.add("autor");
 	span.innerText = autor;
+	span.addEventListener("click", ()=>{
+		termoDePesquisa = `inauthor:${autor}`;
+		pesquisar(termoDePesquisa);
+	});
 	return span;
 }
 
@@ -106,15 +79,18 @@ function spanFromCategoria(categoria){
 	let span = document.createElement("span");
 	span.classList.add("categoria");
 	span.innerText = categoria;
+	span.addEventListener("click", ()=>{
+		termoDePesquisa = `subject:${categoria}`;
+		pesquisar(termoDePesquisa);
+	});
 	return span;
 }
 
-async function pesquisar(nomeLivro, pagina = 0, resultadosPorPagina = 12){
+async function pesquisar(termoDePesquisa, pagina = 0, resultadosPorPagina = 12){
 	modal.style.display = "none";
 	loader.style.display = "block";
-	const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${nomeLivro}+intitle:${nomeLivro}&startIndex=${pagina * resultadosPorPagina}&maxResults=${resultadosPorPagina}&filter=partial&printType=books`);
+	const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${termoDePesquisa}&startIndex=${pagina * resultadosPorPagina}&maxResults=${resultadosPorPagina}&filter=partial&printType=books`);
 	let resultado = await response.json();
-	//console.log(resultado);
 
 	livros = [];
 
@@ -148,10 +124,10 @@ function livroFromPesquisa(resultado){
 }
 
 pesquisa.addEventListener("search", ()=>{
-	nomeDoLivro = pesquisa.value;
+	termoDePesquisa = pesquisa.value;
 	paginaAtual = 1;
 	qtdPaginas = 0;
-	pesquisar(nomeDoLivro);
+	pesquisar(termoDePesquisa);
 });
 
 btnPagAnteiror.addEventListener("click", ()=>{
@@ -159,7 +135,7 @@ btnPagAnteiror.addEventListener("click", ()=>{
 		paginaAtual--; 
 	}
 
-	pesquisar(nomeDoLivro, paginaAtual, resultadosPorPagina);
+	pesquisar(termoDePesquisa, paginaAtual, resultadosPorPagina);
 });
 
 btnPagProxima.addEventListener("click", ()=>{
@@ -167,7 +143,7 @@ btnPagProxima.addEventListener("click", ()=>{
 		paginaAtual++; 
 	}
 
-	pesquisar(nomeDoLivro, paginaAtual, resultadosPorPagina);
+	pesquisar(termoDePesquisa, paginaAtual, resultadosPorPagina);
 });
 
 function atualizarPaginacao(){
