@@ -1,64 +1,123 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>VulpsBooks</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>VulpsBooks</title>
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap"
+      rel="stylesheet"
+    />
 
-		<link rel="stylesheet" href="./css/style.css">
-	</head>
-	<body>
-		<header>
-			<h1 id="logo">VulpsBooks</h1>
-			<input type="search" id="pesquisa" placeholder="Pesquise aqui">
-		</header>
-		<main>
-			<ul id="lista-livros"></ul>
-		
-			<!-- Modal -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div id="header-container">
+      <header>
+        <h1 id="logo">VulpsBooks</h1>
+        <input type="search" id="pesquisa" placeholder="Pesquise aqui" />
+      </header>
+    </div>
+    <main>
+      <div id="mensagem" tabindex="-1">
+        <h2>Bem-vindo ao <span class="destaque">VulpsBooks</span>!</h2>
+        <h4>Encontre os livros que você está procurando de qualquer lugar.</h4>
+        <p>
+          Pesquise livros em qualquer lugar, você não precisa saber o nome do
+          livro, se você sabe o nome do autor ou da editora, basta digitar e
+          pesquisar.
+        </p>
+      </div>
+      <ul id="lista-livros"></ul>
 
-			<div id="modal">
-				<header>
-					<h3 id="titulo">Harry Potter e o Cálice de Fogo</h3>	
-					<button id="close">X</button>
-				</header>
-				<div id="conteudo">
-					<div id="info-container" >
-						<img src="./img/capa.png" alt="capa" id="capa">		
+      <!-- Modal -->
 
-						<article id="info">
-							<span class="label">Autores</span>
-							<section id="autores">
-								<span class="autor">J. K. Rowling</span>
-							</section>
-							<span class="label">Editora</span>
-							<p id="editora">Editora</p>
-							<span class="label">Publicação</span>
-							<p id="publicacao">Publicação</p>
-							<span class="label">Categorias</span>
-							<section id="categorias">
-								<span class="categoria">Ação</span>
-								<span class="categoria">Aventura</span>
-								<span class="categoria">Magia</span>
-							</section>
-						</article>
-					</div>
-					<article id="descricao-container">
-						<p id="descricao">Há 20 anos a magia aterrissou no Brasil com a chegada de Harry Potter e a Pedra Filosofal. Para comemorar este aniversário tão especial de um dos livros mais vendidos da história, a Rocco lançou esta coleção de luxo em edição limitada com os sete livros em capa dura, com ilustrações de Brian Selznick (vencedor da Medalha Caldecott) e Mary GrandPré. Uma novidade que irá encantar novos leitores e fãs que acompanham a série por todos esses anos. Venha explorar esse universo mágico! Verão, Harry Potter, agora com 14 anos, sente sua cicatriz arder durante um sonho bastante real com Lord Voldemort, o qual não consegue esquecer; três dias depois, já em companhia da família Weasley, com quem foi passar o restante das férias, na final da Copa Mundial de Quadribol, os Comensais da Morte, seguidores de Você-Sabe-Quem, reaparecem e alguém conjura a Marca Negra – o sinal de Lord Voldemort – projetando-a no céu pela primeira vez em 13 anos, causando pânico na comunidade mágica. Será que o terrível bruxo está voltando? Tudo indica que sim... Em Harry Potter e o Cálice de fogo, o ano letivo já começa agitado. Harry volta para a Escola de Magia e Bruxaria de Hogwarts para cursar a quarta série. Acontecimentos inesperados – como, por exemplo, a presença de um novo professor de Defesa contra as Artes das Trevas e um evento extraordinário promovido na escola – alvoroçam os ânimos dos estudantes. Para surpresa de todos não haverá a tradicional Copa Anual de Quadribol entre Casas. Será substituída pelo Torneio Tribuxo, uma competição amistosa entre as três maiores escolas européias de bruxaria — Hogwarts, Beauxbatons e Durmstrang — que não se realizava havia um século. A competição é dividida em tarefas, cuja finalidade é testar a coragem, o poder de dedução, a perícia em magia e a capacidade de enfrentar o perigo dos campeões. Liderados pelo professor Dumbledore, os alunos de Hogwarts terão de demonstrar as habilidades mágicas e não-mágicas que vêm adquirindo ao longo de suas vidas. Apesar de alunos menores de 17 anos não poderem se inscrever no Torneio, inexplicavelmente Harry é escolhido pelo Cálice de Fogo, um grande copo de madeira toscamente talhado cheio até a borda com chamas branco-azuladas, para competir como um dos campeões de Hogwarts. Tendo a seu lado os fiéis amigos Rony Weasley, Hermione Granger e agora também o seu padrinho, o bruxo Sirius Black, que fugiu de Azkaban no ano anterior, o menino feiticeiro tentará escapar mais uma vez das armadilhas de Lord Voldemort. Além de todos os desafios, há feitiços a serem aprendidos, poções a serem preparadas e aulas de Adivinhação, entre outras, a serem assistidas, Harry terá que lidar ainda com os problemas comuns da adolescência: amor, amizade, aceitação e rejeição.</p>
-					</article>
-				</div>
-			</div>
-		<div id="paginacao">
-			<button id="pag-anterior" class="btn-page"><</button>
-			<span id="pag-atual"></span>
-			<button id="pag-proxima" class="btn-page">></button>
-		</div>
-		</main>
-		<div id="loader">Carregando...</div>
-		<script src="./js/main.js"></script>
-	</body>
+      <div id="modal">
+        <header>
+          <h3 id="titulo">Harry Potter e o Cálice de Fogo</h3>
+          <button id="close">X</button>
+        </header>
+        <div id="conteudo">
+          <div id="info-container">
+            <img src="./img/capa.png" alt="capa" id="capa" />
+
+            <article id="info">
+              <span class="label">Autores</span>
+              <section id="autores">
+                <span class="autor">J. K. Rowling</span>
+              </section>
+              <span class="label">Editora</span>
+              <p id="editora">Editora</p>
+              <span class="label">Publicação</span>
+              <p id="publicacao">Publicação</p>
+              <span class="label">Categorias</span>
+              <section id="categorias">
+                <span class="categoria">Ação</span>
+                <span class="categoria">Aventura</span>
+                <span class="categoria">Magia</span>
+              </section>
+            </article>
+          </div>
+          <article id="descricao-container">
+            <p id="descricao">
+              Há 20 anos a magia aterrissou no Brasil com a chegada de Harry
+              Potter e a Pedra Filosofal. Para comemorar este aniversário tão
+              especial de um dos livros mais vendidos da história, a Rocco
+              lançou esta coleção de luxo em edição limitada com os sete livros
+              em capa dura, com ilustrações de Brian Selznick (vencedor da
+              Medalha Caldecott) e Mary GrandPré. Uma novidade que irá encantar
+              novos leitores e fãs que acompanham a série por todos esses anos.
+              Venha explorar esse universo mágico! Verão, Harry Potter, agora
+              com 14 anos, sente sua cicatriz arder durante um sonho bastante
+              real com Lord Voldemort, o qual não consegue esquecer; três dias
+              depois, já em companhia da família Weasley, com quem foi passar o
+              restante das férias, na final da Copa Mundial de Quadribol, os
+              Comensais da Morte, seguidores de Você-Sabe-Quem, reaparecem e
+              alguém conjura a Marca Negra – o sinal de Lord Voldemort –
+              projetando-a no céu pela primeira vez em 13 anos, causando pânico
+              na comunidade mágica. Será que o terrível bruxo está voltando?
+              Tudo indica que sim... Em Harry Potter e o Cálice de fogo, o ano
+              letivo já começa agitado. Harry volta para a Escola de Magia e
+              Bruxaria de Hogwarts para cursar a quarta série. Acontecimentos
+              inesperados – como, por exemplo, a presença de um novo professor
+              de Defesa contra as Artes das Trevas e um evento extraordinário
+              promovido na escola – alvoroçam os ânimos dos estudantes. Para
+              surpresa de todos não haverá a tradicional Copa Anual de Quadribol
+              entre Casas. Será substituída pelo Torneio Tribuxo, uma competição
+              amistosa entre as três maiores escolas européias de bruxaria —
+              Hogwarts, Beauxbatons e Durmstrang — que não se realizava havia um
+              século. A competição é dividida em tarefas, cuja finalidade é
+              testar a coragem, o poder de dedução, a perícia em magia e a
+              capacidade de enfrentar o perigo dos campeões. Liderados pelo
+              professor Dumbledore, os alunos de Hogwarts terão de demonstrar as
+              habilidades mágicas e não-mágicas que vêm adquirindo ao longo de
+              suas vidas. Apesar de alunos menores de 17 anos não poderem se
+              inscrever no Torneio, inexplicavelmente Harry é escolhido pelo
+              Cálice de Fogo, um grande copo de madeira toscamente talhado cheio
+              até a borda com chamas branco-azuladas, para competir como um dos
+              campeões de Hogwarts. Tendo a seu lado os fiéis amigos Rony
+              Weasley, Hermione Granger e agora também o seu padrinho, o bruxo
+              Sirius Black, que fugiu de Azkaban no ano anterior, o menino
+              feiticeiro tentará escapar mais uma vez das armadilhas de Lord
+              Voldemort. Além de todos os desafios, há feitiços a serem
+              aprendidos, poções a serem preparadas e aulas de Adivinhação,
+              entre outras, a serem assistidas, Harry terá que lidar ainda com
+              os problemas comuns da adolescência: amor, amizade, aceitação e
+              rejeição.
+            </p>
+          </article>
+        </div>
+      </div>
+      <div id="paginacao">
+        <button id="pag-anterior" class="btn-page"><</button>
+        <span id="pag-atual"></span>
+        <button id="pag-proxima" class="btn-page">></button>
+      </div>
+    </main>
+    <div id="loader">Carregando...</div>
+    <script src="./js/main.js"></script>
+  </body>
 </html>

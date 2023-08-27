@@ -1,269 +1,306 @@
-:root{
-	--primary-color: #9274b7;
-	--primary-text-color: white;
+:root {
+  --primary-color: #9274b7;
+  --primary-text-color: white;
 }
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-	background-color: #f8f8f0;
-	font-family: 'Comfortaa', cursive;
+  background-color: #f8f8f0;
+  font-family: "Comfortaa", cursive;
+  padding-top: 64px;
+}
+
+#header-container {
+  width: 100%;
+  height: 64px;
+  position: fixed;
+  top: 0px;
+  z-index: 10;
 }
 
 header {
-	color: var(--primary-text-color);
-	background-color: var(--primary-color);
-	margin-bottom: 16px;
-	padding: 16px 32px;
-	box-shadow: 0px 1px 5px #ddd;
-	z-index: 1px;
-	height: 64px;
-	position: relative;
+  color: var(--primary-text-color);
+  background-color: var(--primary-color);
+  margin-bottom: 16px;
+  padding: 16px 32px;
+  box-shadow: 0px 1px 5px #ddd;
+  height: 64px;
+  position: relative;
 }
 
 #logo {
-	display: inline-block;
-	position: absolute;
-	left: 32px;
+  display: inline-block;
+  position: absolute;
+  left: 32px;
 }
 
 #pesquisa {
-	width: 25%;
-	height: 32px;
-	background-color: #ffffffbb;
-	padding: 16px;
-	border-radius: 16px;
-	border: none;
-	display: inline-block;
-	position: absolute;
-	right: 32px;
+  width: 25%;
+  height: 32px;
+  background-color: #ffffffbb;
+  padding: 16px;
+  border-radius: 16px;
+  border: none;
+  display: inline-block;
+  position: absolute;
+  right: 32px;
 }
 
-#pesquisa:focus{
-	outline: none;
+#pesquisa:focus {
+  outline: none;
 }
 
-main{ 
-	width: 80%;
-	margin: auto;
-	position: relative;
+main {
+  width: 80%;
+  margin: auto;
+  position: relative;
 }
 
-#lista-livros{
-	text-align: center;
+#mensagem {
+  padding: 32px;
+  text-align: center;
 }
 
-#lista-livros li{
-	width: 240px;
-	margin: 16px 1%;
-	display: inline-block;
-	position: relative;
-	border-radius: 8px;
-	overflow: hidden;
+#mensagem:focus {
+  outline: none;
+}
+
+#mensagem h4 {
+  margin: 16px;
+}
+
+#mensagem p {
+  margin: auto;
+  width: 50%;
+}
+
+.destaque {
+  color: var(--primary-color);
+  text-shadow: 1px 1px lightgrey;
+}
+
+#lista-livros {
+  text-align: center;
+}
+
+#lista-livros li {
+  width: 240px;
+  margin: 16px 1%;
+  display: inline-block;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px gray;
+}
+
+#lista-livros li:hover {
+  box-shadow: 5px 5px 10px gray;
 }
 
 .capa {
-	width: 100%;
-	height: 360px;
+  width: 100%;
+  height: 360px;
 }
 
 .titulo {
-	text-align: center;
-	color: var(--primary-text-color);
-	background: linear-gradient(#00000033, #000000aa);
-	text-shadow: 1px 1px #ababab33;
-	font-size: 0.95em;
-	width: 100%;
-	padding: 8px 16px;
-	position: absolute;
-	bottom: 0px;
+  text-align: center;
+  color: var(--primary-text-color);
+  background: linear-gradient(#00000033, #000000aa);
+  text-shadow: 1px 1px #ababab33;
+  font-size: 0.95em;
+  width: 100%;
+  padding: 8px 16px;
+  position: absolute;
+  bottom: 0px;
 }
 
 #modal {
-	width: 100%;
-	background-color: #efefe0;
-	border-radius:16px;
-	display: none;
-	box-shadow: 1px 1px 5px #ababab88;
-	position: absolute;
-	top: 64px;
-	padding-bottom: 32px;
-	overflow: hidden;
+  width: 100%;
+  background-color: #efefe0;
+  border-radius: 16px;
+  display: none;
+  box-shadow: 1px 1px 5px #ababab88;
+  position: absolute;
+  top: 64px;
+  padding-bottom: 32px;
+  overflow: hidden;
 }
 
 #titulo {
-	width: 90%;
-	text-align: center;
-	display: inline-block;
+  width: 90%;
+  text-align: center;
+  display: inline-block;
+}
+
+#titulo:focus {
+  outline: none;
 }
 
 #close {
-	width: 24px;
-	height: 24px;
-	font-size: 1.5em;
-	color: var(--primary-text-color);
-	background-color: var(--primary-color);
-	display: inline-block;
-	border: none;
+  width: 24px;
+  height: 24px;
+  font-size: 1.5em;
+  color: var(--primary-text-color);
+  background-color: var(--primary-color);
+  display: inline-block;
+  border: none;
+  cursor: pointer;
 }
 
 #conteudo {
-	padding: 32px;
-	height: 850px;
+  padding: 32px;
+  height: 850px;
 }
 
 #info-container {
-	width: 40%;
-	display: inline-block;
+  width: 40%;
+  display: inline-block;
 }
 
 #info-container img {
-	width: 50%;
+  width: 50%;
 }
 
 #info {
-	display: block;
+  display: block;
 }
 
 .label {
-	margin: 8px 0px;
-	font-weight: bold;
-	display: block;
+  margin: 8px 0px;
+  font-weight: bold;
+  display: block;
 }
 
 #descricao-container {
-	width: 57%;
-	height: 100%;
-	float: right;
-	overflow-y: scroll;
-	padding: 8px;
-	margin-left: 8px;
+  width: 57%;
+  height: 100%;
+  float: right;
+  overflow-y: scroll;
+  padding: 8px;
+  margin-left: 8px;
 }
 
 .categoria {
-	background-color: #00000033;
-	margin-right: 8px;
-	padding: 2px 16px;
-	border-radius: 16px;
-	display: inline-block;
-	cursor: pointer;
+  background-color: #00000033;
+  margin-right: 8px;
+  padding: 2px 16px;
+  border-radius: 16px;
+  display: inline-block;
+  cursor: pointer;
 }
 
 .autor {
-	background-color: #ffffffcc;
-	margin-right: 8px;
-	padding: 2px 16px;
-	border-radius: 16px;
-	display: inline-block;
-	cursor: pointer;
+  background-color: #ffffffcc;
+  margin-right: 8px;
+  padding: 2px 16px;
+  border-radius: 16px;
+  display: inline-block;
+  cursor: pointer;
 }
 
-#loader{
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 64px;
-	background-color: #000000aa;
-	color: #f3f3f3ff;
-	padding: 64px;
-	font-size: 2.5em;
-	text-align: center;
-	display: none;
+#loader {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 64px;
+  background-color: #000000aa;
+  color: #f3f3f3ff;
+  padding: 64px;
+  font-size: 2.5em;
+  text-align: center;
+  display: none;
 }
 
 #paginacao {
-	display: none;
-	margin-top: 32px;
-	padding: 8px;
-	text-align: center;
+  display: none;
+  margin-top: 32px;
+  padding: 8px;
+  text-align: center;
 }
 
 .btn-page {
-	width: 48px;
-	height: 32px;
-	margin: 0px 16px;
-	background-color: var(--primary-color);
-	color: var(--primary-text-color);
-	font-weight: bold;
-	border: none;
-	border-radius: 8px;
-	box-shadow: 1px 1px 1px #000000aa;
-	cursor: pointer;
+  width: 48px;
+  height: 32px;
+  margin: 0px 16px;
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 1px 1px 1px #000000aa;
+  cursor: pointer;
 }
 
-.btn-page:disabled{
-	background-color: gray;
+.btn-page:disabled {
+  background-color: gray;
 }
 
+@media screen and (max-width: 720px) {
+  #lista-livros li {
+    width: 47%;
+    max-width: 180px;
+    margin: 16px 1.9%;
+  }
 
-@media screen and (max-width: 720px){
+  .capa {
+    height: 270;
+  }
 
-	#lista-livros li{
-		width: 47%;
-		max-width: 180px;
-		margin: 16px 1.9%;
-	}
+  #modal header {
+    height: auto;
+  }
 
-	.capa{
-		height: 270;
-	}
+  #conteudo {
+    text-align: center;
+  }
 
-	#modal header{
-		height: auto;
-	}
+  #info-container img {
+    width: 100%;
+  }
 
-	#conteudo{
-		text-align: center;
-	}
-
-	#info-container img {
-		width: 100%;
-	}
-
-	#descricao-container {
-		width: 100%;
-		margin-top: 16px;
-		overflow: visible;
-	}
-
+  #descricao-container {
+    width: 100%;
+    margin-top: 16px;
+    overflow: visible;
+  }
 }
 
-@media screen and (max-width: 480px){
+@media screen and (max-width: 480px) {
+  #lista-livros li {
+    width: 98%;
+    max-width: 240px;
+  }
 
-	#lista-livros li{
-		width: 98%;
-		max-width: 240px;
-	}
+  header {
+    height: 120px;
+  }
 
-	header {
-		height: 120px;
-	}
+  #logo {
+    width: 100%;
+    margin-bottom: 16px;
+    text-align: center;
+    position: static;
+  }
 
-	#logo {
-		width: 100%;
-		margin-bottom: 16px;
-		text-align: center;
-		position: static;
-	}
+  #pesquisa {
+    width: 100%;
+    position: static;
+  }
 
-	#pesquisa {
-		width: 100%;
-		position: static;
-	}
-
-	#modal {
-		width: 100%;
-		border-radius: 0px;
-		position: fixed;
-		top: 0px;
-		left: 0px;
-		height: 100%;
-		overflow: scroll;
-	}
-
+  #modal {
+    width: 100%;
+    border-radius: 0px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    overflow: scroll;
+    z-index: 10;
+  }
 }
-
